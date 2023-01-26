@@ -31,6 +31,9 @@ class CategoryBadgeBase(models.Model):
         unique=True
     )
 
+    class Meta:
+        abstract = True
+
 
 class Category(CategoryBadgeBase):
     parent_category = models.ForeignKey(
@@ -65,6 +68,10 @@ class Flower(models.Model):
         related_name='category',
         verbose_name='Категория'
     )
+    flowers = models.ManyToManyField(
+        'Characteristic',
+        through='FlowerCharacteristic'
+    )
     name = models.CharField(
         verbose_name='Название',
         max_length=300,
@@ -98,10 +105,6 @@ class Flower(models.Model):
 
 
 class Characteristic(models.Model):
-    flower = models.ManyToManyField(
-        Flower,
-        through='FlowerCharacteristic'
-    )
     height = models.DecimalField(
         verbose_name='Высота, см',
         max_digits=10,
