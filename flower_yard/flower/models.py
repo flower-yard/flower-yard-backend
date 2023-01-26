@@ -54,7 +54,7 @@ class Category(CategoryBadgeBase):
 
 
 class Flower(models.Model):
-    badge = models.OneToOneField(
+    badge = models.ForeignKey(
         'Badge',
         on_delete=models.SET_NULL,
         related_name='flower_badge',
