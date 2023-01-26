@@ -20,7 +20,7 @@ class FlowingPeriod(models.IntegerChoices):
     __empty__ = 'Выберите месяц'
 
 
-class Category(models.Model):
+class CategoryBadgeBase(models.Model):
     name = models.CharField(
         verbose_name='Название',
         max_length=350
@@ -30,6 +30,9 @@ class Category(models.Model):
         max_length=100,
         unique=True
     )
+
+
+class Category(CategoryBadgeBase):
     parent_category = models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
@@ -37,6 +40,14 @@ class Category(models.Model):
         null=True,
         related_name='child'
     )
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+        db_table = 'Category'
+
+    def __str__(self):
+        return self.name
 
 
 class Flower(models.Model):
@@ -55,7 +66,7 @@ class Flower(models.Model):
         verbose_name='Категория'
     )
     name = models.CharField(
-        verbose_name='',
+        verbose_name='Название',
         max_length=300,
         db_index=True
     )
@@ -66,14 +77,24 @@ class Flower(models.Model):
         verbose_name='Фото растения',
         upload_to='flowers/'
     )
-    price = models.IntegerField(
+    price = models.DecimalField(
         verbose_name='Цена, руб.',
+        max_digits=10,
+        decimal_places=2,
         validators=[
             validators.MinValueValidator(
                 0, message='Введите значение больше 0'
             )
         ]
     )
+
+    class Meta:
+        verbose_name = 'Растение'
+        verbose_name_plural = 'Растения'
+        db_table = 'Flower'
+
+    def __str__(self):
+        return self.name
 
 
 class Characteristic(models.Model):
@@ -127,6 +148,14 @@ class Characteristic(models.Model):
         default=FlowingPeriod.OCTOBER
     )
 
+    class Meta:
+        verbose_name = 'Характеристика'
+        verbose_name_plural = 'Характеристики'
+        db_table = 'Characteristic'
+
+    def __str__(self):
+        return f'высота - {self.height} см, диаметр - {self.diameter} см'
+
 
 class FlowerCharacteristic(models.Model):
     characteristics = models.ForeignKey(
@@ -142,18 +171,21 @@ class FlowerCharacteristic(models.Model):
         verbose_name='Растение'
     )
 
+    class Meta:
+        db_table = 'FlowerCharacteristic'
 
-class Badge(models.Model):
-    name = models.CharField(
-        verbose_name='Название бейджа',
-        max_length=50,
-        unique=True
-    )
-    slug = models.SlugField(
-        verbose_name='Слаг',
-        max_length=50,
-        unique=True
-    )
+    def __str__(self):
+        return f'{self.flowers}: {self.characteristics}'
+
+
+class Badge(CategoryBadgeBase):
+    class Meta:
+        verbose_name = 'Бейдж'
+        verbose_name_plural = 'Бейджи'
+        db_table = 'Badge'
+
+    def __str__(self):
+        return {self.name}
 
 
 class QR(models.Model):
@@ -166,3 +198,11 @@ class QR(models.Model):
     url = models.URLField(
         verbose_name='Интернет ресурс на растение'
     )
+
+    class Meta:
+        verbose_name = 'QR-код'
+        verbose_name_plural = 'QR-коды'
+        db_table = 'QR'
+
+    def __str__(self):
+        return f'{self.flower:}: {self.url}'
