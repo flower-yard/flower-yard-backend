@@ -16,7 +16,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'flower'
+    'rest_framework',
+    'flower.apps.FlowerConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
