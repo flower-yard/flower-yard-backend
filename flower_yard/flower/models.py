@@ -185,7 +185,7 @@ class Badge(CategoryBadgeBase):
         db_table = 'Badge'
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class QR(models.Model):
@@ -206,3 +206,4 @@ class QR(models.Model):
 
     def __str__(self):
         return f'{self.flower:}: {self.url}'
+

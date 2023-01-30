@@ -1,7 +1,9 @@
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 
-from flower.models import Badge, Category, Characteristic, Flower
+from flower.models import (Badge, Category, Characteristic,
+                           Flower, FlowerCharacteristic,
+                           FlowingPeriod,  LightLoving)
 
 
 class BadgeSerializer(serializers.ModelSerializer):
@@ -25,13 +27,17 @@ class CategorySerializer(serializers.ModelSerializer):
         )
 
 
-class ReadFlowerSerializer(serializers.ModelSerializer):
-    badge = BadgeSerializer
-    category = CategorySerializer
+class FlowerSerializer(serializers.ModelSerializer):
+    badge = SlugRelatedField(
+        slug_field='name', read_only=True
+    )
+    category = SlugRelatedField(
+        slug_field='name', read_only=True)
 
     class Meta:
         model = Flower
         fields = (
+            'id',
             'badge',
             'category',
             'name',
@@ -41,22 +47,32 @@ class ReadFlowerSerializer(serializers.ModelSerializer):
         )
 
 
-class FlowerSerializer(serializers.ModelSerializer):
-    badge = SlugRelatedField(
-        slug_field='slug', queryset=Badge.objects.all(),
-    )
-    category = SlugRelatedField(
-        slug_field='slug', queryset=Category.objects.all(),
-    )
+class CharacteristicSerializer(serializers.ModelSerializer):
+    light_loving = serializers.ChoiceField(choices=LightLoving.choices)
+    period_from = serializers.ChoiceField(choices=FlowingPeriod.choices)
+    period_by = serializers.ChoiceField(choices=FlowingPeriod.choices)
 
     class Meta:
-        model = Flower
+        model = Characteristic
         fields = (
-            'badge',
-            'category',
-            'name',
-            'description',
-            'image',
-            'price'
+            'id',
+            'height',
+            'diameter',
+            'weight',
+            'light_loving',
+            'period_from',
+            'period_by'
+        )
+
+
+class FlowerCharacteristicSerializer(serializers.ModelSerializer):
+    flowers = FlowerSerializer()
+    characteristics = CharacteristicSerializer()
+
+    class Meta:
+        model = FlowerCharacteristic
+        fields = (
+            'flowers',
+            'characteristics'
         )
 

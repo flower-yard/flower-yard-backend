@@ -1,25 +1,40 @@
-from rest_framework import viewsets
+from rest_framework import filters
+from rest_framework.viewsets import ReadOnlyModelViewSet
 from .serializers import (BadgeSerializer, CategorySerializer,
-                          FlowerSerializer, ReadFlowerSerializer)
-from flower.models import Badge, Category, Flower
+                          CharacteristicSerializer,
+                          FlowerSerializer, FlowerCharacteristicSerializer)
+from django_filters.rest_framework import DjangoFilterBackend
+from flower.models import Badge, Category, Characteristic, Flower, FlowerCharacteristic
 
 
-class BadgeViewSet(viewsets.ModelViewSet):
+class BadgeViewSet(ReadOnlyModelViewSet):
     queryset = Badge.objects.all()
     serializer_class = BadgeSerializer
+    lookup_field = 'slug'
 
 
-class CategoriesViewSet(viewsets.ModelViewSet):
+class CategoriesViewSet(ReadOnlyModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    lookup_field = 'slug'
 
 
-class FlowerViewSet(viewsets.ModelViewSet):
+class FlowerViewSet(ReadOnlyModelViewSet):
     queryset = Flower.objects.all()
-    serializer_class = ReadFlowerSerializer
+    serializer_class = FlowerSerializer
+    filter_backends = (filters.SearchFilter, )
+    search_name = ('name', )
 
-    def get_serializer_class(self):
-        if self.action in ('list', 'retrieve'):
-            return ReadFlowerSerializer
-        return FlowerSerializer
+
+class CharacteristicViewSet(ReadOnlyModelViewSet):
+    queryset = Characteristic.objects.all()
+    serializer_class = CharacteristicSerializer
+
+
+class FlowerCharacteristicViewSet(ReadOnlyModelViewSet):
+    queryset = FlowerCharacteristic.objects.all()
+    serializer_class = FlowerCharacteristicSerializer
+    filter_backends = (DjangoFilterBackend, )
+
+
 
