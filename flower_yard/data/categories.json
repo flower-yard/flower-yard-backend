@@ -1,32 +1,273 @@
 [
-  {"name": "Однолетние", "slug": "one_year"},
-  {"name": "Многолетние", "slug": "multiyear"},
-  {"name": "Декоративные", "slug": "decorative"},
-  {"name": "Плодовые", "slug": "fruit_trees"},
-  {"name": "Хвойные", "slug": "coniferous"},
-  {"name": "Петунии", "slug": "petunias", "parent_category_id": 1},
-  {"name": "Калибрахоа", "slug": "calibrahoa", "parent_category_id": 1},
-  {"name": "Вербены", "slug": "verbena", "parent_category_id": 1},
-  {"name": "Немезии", "slug": "nemesis", "parent_category_id": 1},
-  {"name": "Пеларгонии", "slug": "pelargoniums", "parent_category_id": 1},
-  {"name": "Флоксы", "slug": "phlox", "parent_category_id": 2},
-  {"name": "Ромашки", "slug": "daisies", "parent_category_id": 2},
-  {"name": "Пионы", "slug": "pions", "parent_category_id": 2},
-  {"name": "Лилии", "slug": "lilies", "parent_category_id": 2},
-  {"name": "Гейхеры", "slug": "geikers", "parent_category_id": 2},
-  {"name": "Хосты", "slug": "hosts", "parent_category_id": 2},
-  {"name": "Примулы", "slug": "primroses", "parent_category_id": 2},
-  {"name": "Гортензии", "slug": "hydrangeas", "parent_category_id": 3},
-  {"name": "Сирени", "slug": "lilacs", "parent_category_id": 3},
-  {"name": "Барбарисы", "slug": "barberries", "parent_category_id": 3},
-  {"name": "Розы", "slug": "roses", "parent_category_id": 3},
-  {"name": "Яблони", "slug": "apple_trees", "parent_category_id": 4},
-  {"name": "Груши", "slug": "pears", "parent_category_id": 4},
-  {"name": "Сливы", "slug": "plums", "parent_category_id": 4},
-  {"name": "Абрикосы", "slug": "apricots", "parent_category_id": 4},
-  {"name": "Смородина", "slug": "currant", "parent_category_id": 4},
-  {"name": "Крыжовники", "slug": "gooseberries", "parent_category_id": 4},
-  {"name": "Туи", "slug": "tui", "parent_category_id": 5},
-  {"name": "Можжевельники", "slug": "junipers", "parent_category_id": 5},
-  {"name": "Ели", "slug": "ate", "parent_category_id": 5}
+  {
+    "name": "Однолетние",
+    "slug": "odnoletnie",
+    "parent_id": null,
+    "lft": 1,
+    "rght": 12,
+    "tree_id": 3,
+    "level": 0
+  },
+  {
+    "name": "Многолетние",
+    "slug": "mnogoletnie",
+    "parent_id": null,
+    "lft": 16,
+    "rght": 2,
+    "tree_id": 0,
+    "level": 0
+  },
+  {
+    "name": "Декоративные",
+    "slug": "dekorativnye",
+    "parent_id": null,
+    "lft": 1,
+    "rght": 10,
+    "tree_id": 1,
+    "level": 0
+
+  },
+  {
+    "name": "Плодовые",
+    "slug": "plodovye",
+    "parent_id": null,
+    "lft": 1,
+    "rght": 14,
+    "tree_id": 4,
+    "level": 0
+  },
+  {
+    "name": "Хвойные",
+    "slug": "hvojnye",
+    "parent_id": null,
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 5,
+    "level": 0
+  },
+  {
+    "name": "Петунии",
+    "slug": "petunias",
+    "parent_id": 1,
+    "lft": 10,
+    "rght": 11,
+    "tree_id": 3,
+    "level": 1
+  },
+  {
+    "name": "Калибрахоа",
+    "slug": "kalibrahoa",
+    "parent_id": 1,
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 3,
+    "level": 1
+  },
+  {
+    "name": "Вербены",
+    "slug": "verbeny",
+    "parent_id": 1,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 3,
+    "level": 1
+  },
+  {
+    "name": "Немезии",
+    "slug": "nemezii",
+    "parent_id": 1,
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 3,
+    "level": 1
+  },
+  {
+    "name": "Пеларгонии",
+    "slug": "pelargonii",
+    "parent_id": 1,
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 3,
+    "level": 1
+  },
+  {
+    "name": "Флоксы",
+    "slug": "floksy",
+    "parent_id": 2,
+    "lft": 12,
+    "rght": 13,
+    "tree_id": 2,
+    "level": 1
+  },
+  {
+    "name": "Ромашки",
+    "slug": "romashki",
+    "parent_id": 2,
+    "lft": 10,
+    "rght": 11,
+    "tree_id": 2,
+    "level": 1
+  },
+  {
+    "name": "Пионы",
+    "slug": "piony",
+    "parent_id": 2,
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 2,
+    "level": 1
+  },
+  {
+    "name": "Лилии",
+    "slug": "lilii",
+    "parent_id": 2,
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 2,
+    "level": 1
+  },
+  {
+    "name": "Гейхеры",
+    "slug": "gejhery",
+    "parent_id": 2,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 2,
+    "level": 1
+  },
+  {
+    "name": "Хосты",
+    "slug": "hosty",
+    "parent_id": 2,
+    "lft": 14,
+    "rght": 15,
+    "tree_id": 2,
+    "level": 1
+  },
+  {
+    "name": "Примулы",
+    "slug": "primuly",
+    "parent_id": 2,
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 2,
+    "level": 1
+  },
+  {
+    "name": "Гортензии",
+    "slug": "gortenzii",
+    "parent_id": 3,
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 1,
+    "level": 1
+  },
+  {
+    "name": "Сирени",
+    "slug": "sireni",
+    "parent_id": 3,
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 1,
+    "level": 1
+  },
+  {
+    "name": "Барбарисы",
+    "slug": "barbarisy",
+    "parent_id": 3,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 1,
+    "level": 1
+  },
+  {
+    "name": "Розы",
+    "slug": "rozy",
+    "parent_id": 3,
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 1,
+    "level": 1
+  },
+  {
+    "name": "Яблони",
+    "slug": "yabloni",
+    "parent_id": 4,
+    "lft": 12,
+    "rght": 13,
+    "tree_id": 4,
+    "level": 1
+  },
+  {
+    "name": "Груши",
+    "slug": "grushi",
+    "parent_id": 4,
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 4,
+    "level": 1
+  },
+  {
+    "name": "Сливы",
+    "slug": "slivy",
+    "parent_id": 4,
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 4,
+    "level": 1
+  },
+  {
+    "name": "Абрикосы",
+    "slug": "abrikosy",
+    "parent_id": 4,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 4,
+    "level": 1
+  },
+  {
+    "name": "Смородина",
+    "slug": "smorodina",
+    "parent_id": 4,
+    "lft": 10,
+    "rght": 11,
+    "tree_id": 4,
+    "level": 1
+  },
+  {
+    "name": "Крыжовники",
+    "slug": "kryzhovniki",
+    "parent_id": 4,
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 4,
+    "level": 1
+  },
+  {
+    "name": "Туи",
+    "slug": "tui",
+    "parent_id": 5,
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 5,
+    "level": 1
+  },
+  {
+    "name": "Можжевельники",
+    "slug": "mozhzhevelniki",
+    "parent_id": 5,
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 5,
+    "level": 1
+  },
+  {
+    "name": "Ели",
+    "slug": "eli",
+    "parent_id": 5,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 5,
+    "level": 1
+  }
 ]

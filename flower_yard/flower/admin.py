@@ -1,23 +1,29 @@
 from django.contrib import admin
-
-from .models import Category, Flower, Characteristic, FlowerCharacteristic, Badge, QR
-
-
-class FlowerCharacteristicInline(admin.StackedInline):
-    model = FlowerCharacteristic
-    extra = 1
-    verbose_name = 'Характеристика'
-    verbose_name_plural = 'Характеристики'
+from mptt.admin import MPTTModelAdmin
+from .models import (
+    Category,
+    Product,
+    Characteristic,
+    Badge, Documents, ProductCharacteristic
+)
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class ProductCharacteristicInline(admin.StackedInline):
+    model = ProductCharacteristic
+    extra = 3
+    verbose_name = 'Наименование характеристики'
+    verbose_name_plural = 'Наименование характеристик'
+
+
+class CategoryAdmin(MPTTModelAdmin):
     list_display = (
         'pk',
         'name',
         'slug',
-        'parent_category'
+        'parent'
     )
     prepopulated_fields = {'slug': ('name',)}
+    mptt_level_indent = 20
 
 
 class FlowerAdmin(admin.ModelAdmin):
@@ -28,7 +34,7 @@ class FlowerAdmin(admin.ModelAdmin):
         'badge',
         'category',
     )
-    inlines = [FlowerCharacteristicInline]
+    inlines = [ProductCharacteristicInline]
 
 
 class BadgeAdmin(admin.ModelAdmin):
@@ -39,25 +45,24 @@ class BadgeAdmin(admin.ModelAdmin):
     )
 
 
-class CharacteristicCAdmin(admin.ModelAdmin):
+class CharacteristicAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
-        'height',
-        'diameter',
-        'light_loving'
+        'name'
     )
 
 
-class QRAdmin(admin.ModelAdmin):
+class DocumentsAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
-        'flower',
-        'url'
+        'file',
+        'date_create',
+        'date_update'
     )
 
 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Flower, FlowerAdmin)
-admin.site.register(Characteristic, CharacteristicCAdmin)
+admin.site.register(Product, FlowerAdmin)
+admin.site.register(Characteristic, CharacteristicAdmin)
 admin.site.register(Badge, BadgeAdmin)
-admin.site.register(QR, QRAdmin)
+admin.site.register(Documents, DocumentsAdmin)

@@ -8,7 +8,11 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'flower_yard.settings')
 django.setup()
 from flower import models
-from flower.models import Category, Badge
+from flower.models import (
+    Category, Badge,
+    Product, Characteristic, ProductCharacteristic
+    # FlowerCharacteristic
+)
 
 
 def drop_data():
@@ -29,11 +33,17 @@ def open_file_json(file: str) -> List[dict]:
 def main():
     data_files = [
         'categories',
-        'badges'
+        'badges',
+        'flowers',
+        'characteristics',
+        'product_characteristic'
     ]
     data_models = [
         Category,
-        Badge
+        Badge,
+        Product,
+        Characteristic,
+        ProductCharacteristic
     ]
     try:
         for num in range(len(data_models)):
@@ -42,7 +52,7 @@ def main():
                     data_files[num]
                 )
             ])
-            print(f'Данные для модели {data_models[num].__class__.__name__} - загрузились!')
+            print(f'Данные для модели {data_models[num].__name__} - загрузились!')
     except Exception as err:
         drop_data()
         print(f'Возникла ошибка: {err}')
