@@ -8,6 +8,9 @@ class CategoriesFilter(FilterSet):
     Фильтрация по категориям. Фильтруются по категорям
     без дочерних категорий
     """
+    name = filters.CharFilter(lookup_expr='startswith')
+    slug = filters.CharFilter(lookup_expr='startswith')
+    parent = filters.CharFilter(lookup_expr='startswith', field_name='parent__name')
     child = filters.BooleanFilter(
         method='get_get_not_child'
     )
@@ -15,7 +18,10 @@ class CategoriesFilter(FilterSet):
     class Meta:
         models = Category
         fields = (
-            'child'
+            'name',
+            'slug',
+            'parent',
+            'child',
         )
 
     def get_get_not_child(self, *args, **kwargs):
@@ -37,7 +43,8 @@ class FlowerFilter(FilterSet):
         model = Product
         fields = (
             'name',
-            'badge'
+            'badge',
+            'category'
         )
 
 

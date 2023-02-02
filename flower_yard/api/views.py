@@ -18,7 +18,6 @@ class CategoriesViewSet(ReadOnlyModelViewSet):
     serializer_class = CategorySerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = CategoriesFilter
-    filterset_fields = ['slug']
 
 
 class FlowerViewSet(ReadOnlyModelViewSet):
