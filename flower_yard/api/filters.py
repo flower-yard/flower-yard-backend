@@ -1,13 +1,14 @@
 from django_filters.rest_framework import FilterSet, filters
-
 from flower.models import Category, Product
 
 
 class CategoriesFilter(FilterSet):
     """
-    Фильтрация по категориям. Фильтруются по категорям
-    без дочерних категорий
+    Фильтрация по категориям.
     """
+    name = filters.CharFilter(lookup_expr='startswith') # Чувстивтелен к регистру из-за того, что
+    slug = filters.CharFilter(lookup_expr='startswith') # SQLite, в интернетах пишут, что с Postgre будет норм
+    parent = filters.CharFilter(lookup_expr='startswith', field_name='parent__name')
     child = filters.BooleanFilter(
         method='get_get_not_child'
     )
@@ -15,7 +16,10 @@ class CategoriesFilter(FilterSet):
     class Meta:
         models = Category
         fields = (
-            'child'
+            'name',
+            'slug',
+            'parent',
+            'child',
         )
 
     def get_get_not_child(self, *args, **kwargs):
@@ -37,7 +41,8 @@ class FlowerFilter(FilterSet):
         model = Product
         fields = (
             'name',
-            'badge'
+            'badge',
+            'category'
         )
 
 

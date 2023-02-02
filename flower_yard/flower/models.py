@@ -24,7 +24,8 @@ class Category(MPTTModel, CategoryBadgeBase):
         on_delete=models.CASCADE,
         blank=True,
         null=True,
-        related_name='child'
+        related_name='child',
+        verbose_name='Родительская категория'
     )
 
     class Meta:
@@ -43,7 +44,7 @@ class Product(models.Model):
     badge = models.ForeignKey(
         'Badge',
         on_delete=models.SET_NULL,
-        related_name='flower_badge',
+        related_name='product_badge',
         blank=True,
         null=True,
         verbose_name='Бейдж'
@@ -68,7 +69,7 @@ class Product(models.Model):
     )
     image = models.ImageField(
         verbose_name='Фото растения',
-        upload_to='flowers/'
+        upload_to='products/'
     )
     price = models.DecimalField(
         verbose_name='Цена, руб.',
@@ -89,9 +90,9 @@ class Product(models.Model):
     )
 
     class Meta:
-        verbose_name = 'Растение'
-        verbose_name_plural = 'Растения'
-        db_table = 'Flower'
+        verbose_name = 'Продукт'
+        verbose_name_plural = 'Продукты'
+        db_table = 'Product'
 
     def __str__(self):
         return self.name

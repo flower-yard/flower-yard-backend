@@ -1,11 +1,11 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet
+
 from .filters import CategoriesFilter, FlowerFilter
 from .serializers import (BadgeSerializer, CategorySerializer,
-                          CharacteristicSerializer,
-                          FlowerSerializer)
+                          FlowerSerializer,
+                          )
 from django_filters.rest_framework import DjangoFilterBackend
-from flower.models import (Badge, Category,
-                           Characteristic, Product)
+from flower.models import (Badge, Category, Product)
 
 
 class BadgeViewSet(ReadOnlyModelViewSet):
@@ -18,7 +18,6 @@ class CategoriesViewSet(ReadOnlyModelViewSet):
     serializer_class = CategorySerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = CategoriesFilter
-    filterset_fields = ['slug']
 
 
 class FlowerViewSet(ReadOnlyModelViewSet):
@@ -27,8 +26,3 @@ class FlowerViewSet(ReadOnlyModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = FlowerFilter
     search_fields = ('^name',)
-
-
-class CharacteristicViewSet(ReadOnlyModelViewSet):
-    queryset = Characteristic.objects.all()
-    serializer_class = CharacteristicSerializer

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from mptt.admin import MPTTModelAdmin
 from .models import (
     Category,
@@ -11,8 +12,8 @@ from .models import (
 class ProductCharacteristicInline(admin.StackedInline):
     model = ProductCharacteristic
     extra = 3
-    verbose_name = 'Наименование характеристики'
-    verbose_name_plural = 'Наименование характеристик'
+    verbose_name = 'Характеристика'
+    verbose_name_plural = 'Характеристики'
 
 
 class CategoryAdmin(MPTTModelAdmin):
@@ -26,15 +27,24 @@ class CategoryAdmin(MPTTModelAdmin):
     mptt_level_indent = 20
 
 
-class FlowerAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'name',
-        'image',
+        'image_tag',
         'badge',
         'category',
+        'amount',
+        'in_available'
     )
     inlines = [ProductCharacteristicInline]
+
+    def image_tag(self, obj):
+        return format_html(
+            '<img src="{}" style="width: 35px; height:35px;"/>'.format(
+                obj.image.url))
+
+    image_tag.__name__ = 'Фото'
 
 
 class BadgeAdmin(admin.ModelAdmin):
@@ -62,7 +72,7 @@ class DocumentsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Product, FlowerAdmin)
+admin.site.register(Product, ProductAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
 admin.site.register(Badge, BadgeAdmin)
 admin.site.register(Documents, DocumentsAdmin)

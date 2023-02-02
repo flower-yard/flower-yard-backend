@@ -34,7 +34,7 @@ def main():
     data_files = [
         'categories',
         'badges',
-        'flowers',
+        'products',
         'characteristics',
         'product_characteristic'
     ]
