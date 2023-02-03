@@ -4,7 +4,10 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     BadgeViewSet,
     CategoriesViewSet,
-    FlowerViewSet, SendEmailView
+    FlowerViewSet,
+)
+from message.views import (
+    SendEmailView
 )
 
 v1_router = DefaultRouter()
