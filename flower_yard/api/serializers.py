@@ -78,4 +78,3 @@ class DocumentsSerializer(serializers.ModelSerializer):
 
     def get_filename(self, obj, *args, **kwargs):
         return str(obj).split('/')[-1]
-
