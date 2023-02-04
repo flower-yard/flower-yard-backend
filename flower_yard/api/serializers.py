@@ -3,8 +3,8 @@ from rest_framework import serializers
 from api.utils import ValueField
 from flower.models import (
     Badge, Category,
-    Characteristic, Product,
-    ProductCharacteristic
+    Documents, Characteristic,
+    Product, ProductCharacteristic
 )
 
 
@@ -63,3 +63,19 @@ class FlowerSerializer(serializers.ModelSerializer):
             'price',
             'amount'
         )
+
+
+class DocumentsSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField(method_name='get_filename')
+    download = serializers.FileField(source='file')
+
+    class Meta:
+        model = Documents
+        fields = (
+            'name',
+            'download',
+        )
+
+    def get_filename(self, obj, *args, **kwargs):
+        return str(obj).split('/')[-1]
+

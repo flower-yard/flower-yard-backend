@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     BadgeViewSet,
     CategoriesViewSet,
+    get_document,
     FlowerViewSet,
 )
 from message.views import (
@@ -18,5 +19,6 @@ v1_router.register('flowers', FlowerViewSet)
 
 urlpatterns = [
     path('v1/send_mail/', SendEmailView.as_view(), name='send_mail'),
+    path('v1/documents/', get_document),
     path('v1/', include(v1_router.urls)),
 ]
