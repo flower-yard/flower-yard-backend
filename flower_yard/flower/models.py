@@ -2,6 +2,13 @@ from django.core import validators
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
+MEASUREMENT = (
+    ('cm', 'см'),
+    ('mm', 'мм'),
+    ('kg', 'кг'),
+    ('gr', 'гр')
+)
+
 
 class CategoryBadgeBase(models.Model):
     name = models.CharField(
@@ -127,7 +134,14 @@ class ProductCharacteristic(models.Model):
     )
     value = models.CharField(
         max_length=300,
-        verbose_name='Значение характеристики'
+        verbose_name='Значение характеристики',
+    )
+    measurement = models.CharField(
+        max_length=2,
+        choices=MEASUREMENT,
+        blank=True,
+        null=True,
+        verbose_name='Единица измерения'
     )
 
     class Meta:

@@ -97,10 +97,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'DEFAULT_PAGINATION_CLASS': 'api.pagination.FlowerAPiPagination',
-    'PAGE_SIZE': 20,
+    'DEFAULT_PAGINATION_CLASS': 'api.pagination.ProductAPiPagination'
 }
-
+PAGE_SIZE = 1
 
 LOGGING = {
     'version': 1,

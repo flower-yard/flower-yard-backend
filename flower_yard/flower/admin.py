@@ -7,7 +7,7 @@ from .models import (
     Characteristic,
     Badge, Documents, ProductCharacteristic
 )
-
+from mptt.admin import TreeRelatedFieldListFilter
 
 class ProductCharacteristicInline(admin.StackedInline):
     model = ProductCharacteristic
@@ -36,6 +36,11 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'amount',
         'in_available'
+    )
+    search_fields = ('name',)
+    list_filter = (
+        'badge',
+        ('category', TreeRelatedFieldListFilter)
     )
     inlines = [ProductCharacteristicInline]
 

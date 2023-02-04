@@ -1,7 +1,9 @@
 from rest_framework.pagination import PageNumberPagination
 
+from flower_yard.settings import PAGE_SIZE
 
-class FlowerAPiPagination(PageNumberPagination):
+
+class ProductAPiPagination(PageNumberPagination):
     page_size_query_param = 'limit'
-    max_page_size = 50
+    page_size = PAGE_SIZE
 
