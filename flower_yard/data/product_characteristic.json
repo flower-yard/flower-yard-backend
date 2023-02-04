@@ -1,0 +1,10 @@
+[
+  {"product_id": 1, "characteristic_id": 1, "value": 25},
+  {"product_id": 1, "characteristic_id": 2, "value": 25},
+  {"product_id": 1, "characteristic_id": 3, "value": "Свет"},
+  {"product_id": 1, "characteristic_id": 4, "value": "Май/Сентябрь"},
+  {"product_id": 2, "characteristic_id": 1, "value": 21},
+  {"product_id": 2, "characteristic_id": 2, "value": 25},
+  {"product_id": 2, "characteristic_id": 3, "value": "Полутень"},
+  {"product_id": 2, "characteristic_id": 4, "value": "Май/Июль"}
+]

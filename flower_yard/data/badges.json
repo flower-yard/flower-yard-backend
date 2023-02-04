@@ -1,0 +1,5 @@
+[
+  {"name": "Новинка", "slug": "new"},
+  {"name": "Рекомендованные", "slug": "recommended"},
+  {"name": "Хит", "slug": "hit"}
+]

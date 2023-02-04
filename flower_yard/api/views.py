@@ -1,40 +1,45 @@
-from rest_framework import filters
+from rest_framework.decorators import api_view
 from rest_framework.viewsets import ReadOnlyModelViewSet
+from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
+
+from .filters import CategoriesFilter, FlowerFilter
 from .serializers import (BadgeSerializer, CategorySerializer,
-                          CharacteristicSerializer,
-                          FlowerSerializer, FlowerCharacteristicSerializer)
+                          DocumentsSerializer, FlowerSerializer,
+                          )
 from django_filters.rest_framework import DjangoFilterBackend
-from flower.models import Badge, Category, Characteristic, Flower, FlowerCharacteristic
+from flower.models import (Badge, Category, Documents, Product)
+
+
+class FlowerAPiPagination(PageNumberPagination):
+    page_size_query_param = 'limit'
+    max_page_size = 50
 
 
 class BadgeViewSet(ReadOnlyModelViewSet):
     queryset = Badge.objects.all()
     serializer_class = BadgeSerializer
-    lookup_field = 'slug'
+    pagination_class = None
 
 
 class CategoriesViewSet(ReadOnlyModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    lookup_field = 'slug'
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = CategoriesFilter
+    pagination_class = None
 
 
 class FlowerViewSet(ReadOnlyModelViewSet):
-    queryset = Flower.objects.all()
+    queryset = Product.objects.all()
     serializer_class = FlowerSerializer
-    filter_backends = (filters.SearchFilter, )
-    search_name = ('name', )
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = FlowerFilter
+    search_fields = ('^name',)
+    pagination_class = FlowerAPiPagination
 
 
-class CharacteristicViewSet(ReadOnlyModelViewSet):
-    queryset = Characteristic.objects.all()
-    serializer_class = CharacteristicSerializer
-
-
-class FlowerCharacteristicViewSet(ReadOnlyModelViewSet):
-    queryset = FlowerCharacteristic.objects.all()
-    serializer_class = FlowerCharacteristicSerializer
-    filter_backends = (DjangoFilterBackend, )
-
-
-
+@api_view(['GET', ])
+def get_document(request):
+    serializer = DocumentsSerializer(Documents.objects.latest(), context={"request": request})
+    return Response(serializer.data)

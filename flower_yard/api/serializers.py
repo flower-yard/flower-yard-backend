@@ -1,13 +1,14 @@
 from rest_framework import serializers
-from rest_framework.relations import SlugRelatedField
 
-from flower.models import (Badge, Category, Characteristic,
-                           Flower, FlowerCharacteristic,
-                           FlowingPeriod,  LightLoving)
+from api.utils import ValueField
+from flower.models import (
+    Badge, Category,
+    Documents, Characteristic,
+    Product, ProductCharacteristic
+)
 
 
 class BadgeSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Badge
         fields = (
@@ -17,62 +18,63 @@ class BadgeSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    parent = serializers.SerializerMethodField()
+
+    def get_parent(self, obj):
+        return CategorySerializer(
+            obj.parent).data if obj.parent else None
 
     class Meta:
         model = Category
         fields = (
+            'pk',
             'name',
             'slug',
-            'parent_category'
-        )
-
-
-class FlowerSerializer(serializers.ModelSerializer):
-    badge = SlugRelatedField(
-        slug_field='name', read_only=True
-    )
-    category = SlugRelatedField(
-        slug_field='name', read_only=True)
-
-    class Meta:
-        model = Flower
-        fields = (
-            'id',
-            'badge',
-            'category',
-            'name',
-            'description',
-            'image',
-            'price'
+            'parent'
         )
 
 
 class CharacteristicSerializer(serializers.ModelSerializer):
-    light_loving = serializers.ChoiceField(choices=LightLoving.choices)
-    period_from = serializers.ChoiceField(choices=FlowingPeriod.choices)
-    period_by = serializers.ChoiceField(choices=FlowingPeriod.choices)
+    value = ValueField(
+        source='char_product',
+        queryset=ProductCharacteristic.objects.all()
+    )
 
     class Meta:
         model = Characteristic
-        fields = (
-            'id',
-            'height',
-            'diameter',
-            'weight',
-            'light_loving',
-            'period_from',
-            'period_by'
-        )
+        fields = ('name', 'value')
 
 
-class FlowerCharacteristicSerializer(serializers.ModelSerializer):
-    flowers = FlowerSerializer()
-    characteristics = CharacteristicSerializer()
+class FlowerSerializer(serializers.ModelSerializer):
+    badge = BadgeSerializer()
+    category = CategorySerializer()
+    characteristics = CharacteristicSerializer(many=True)
 
     class Meta:
-        model = FlowerCharacteristic
+        model = Product
         fields = (
-            'flowers',
-            'characteristics'
+            'id',
+            'badge',
+            'category',
+            'characteristics',
+            'name',
+            'description',
+            'image',
+            'price',
+            'amount'
         )
 
+
+class DocumentsSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField(method_name='get_filename')
+    download = serializers.FileField(source='file')
+
+    class Meta:
+        model = Documents
+        fields = (
+            'name',
+            'download',
+        )
+
+    def get_filename(self, obj, *args, **kwargs):
+        return str(obj).split('/')[-1]
