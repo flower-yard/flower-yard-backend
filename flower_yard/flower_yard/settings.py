@@ -99,7 +99,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'api.pagination.ProductAPiPagination'
 }
-PAGE_SIZE = 1
+PAGE_SIZE = 10
 
 LOGGING = {
     'version': 1,

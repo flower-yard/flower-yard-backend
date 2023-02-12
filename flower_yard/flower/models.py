@@ -34,6 +34,12 @@ class Category(MPTTModel, CategoryBadgeBase):
         related_name='child',
         verbose_name='Родительская категория'
     )
+    image = models.ImageField(
+        upload_to='catalog/',
+        blank=True,
+        null=True,
+        verbose_name='Картинка'
+    )
 
     class Meta:
         verbose_name = 'Категория'
@@ -70,6 +76,11 @@ class Product(models.Model):
         verbose_name='Название',
         max_length=300,
         db_index=True
+    )
+    slug = models.SlugField(
+        verbose_name='Слаг',
+        max_length=100,
+        unique=True
     )
     description = models.TextField(
         verbose_name='Описание'

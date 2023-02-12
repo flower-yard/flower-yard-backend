@@ -17,12 +17,22 @@ class BadgeSerializer(serializers.ModelSerializer):
         )
 
 
-class CategorySerializer(serializers.ModelSerializer):
-    parent = serializers.SerializerMethodField()
+class ProductViewSerializer(serializers.ModelSerializer):
+    """Выдает общую информацию о продукте"""
+    class Meta:
+        model = Product
+        fields = (
+            'id',
+            'name',
+            'description',
+            'image'
+        )
 
-    def get_parent(self, obj):
-        return CategorySerializer(
-            obj.parent).data if obj.parent else None
+
+
+class CatalogListSerializer(serializers.ModelSerializer):
+    """Выдает все имеющиеся категории."""
+    parent = serializers.SerializerMethodField()
 
     class Meta:
         model = Category
@@ -32,6 +42,39 @@ class CategorySerializer(serializers.ModelSerializer):
             'slug',
             'parent'
         )
+
+    def get_parent(self, obj):
+        return CatalogListSerializer(
+            obj.parent).data if obj.parent else None
+
+
+class CatalogDetailSerializer(serializers.ModelSerializer):
+    """Выдает информацию конкретной категории."""
+    products = serializers.SerializerMethodField(source='category')
+
+    class Meta:
+        model = Category
+        fields = (
+            'pk',
+            'name',
+            'slug',
+            'products'
+        )
+
+    def get_products(self, category):
+        request = self.context.get('request')
+        sorted_badge = request.query_params.get('sorted_badge')
+        if sorted_badge:
+            return ProductViewSerializer(
+                Product.objects.filter(category=category, badge__slug=sorted_badge),
+                context={'queryset': request},
+                many=True
+            ).data
+        return ProductViewSerializer(
+            Product.objects.filter(category=category),
+            context={'queryset': request},
+            many=True
+        ).data
 
 
 class CharacteristicSerializer(serializers.ModelSerializer):
@@ -45,9 +88,9 @@ class CharacteristicSerializer(serializers.ModelSerializer):
         fields = ('name', 'value')
 
 
-class FlowerSerializer(serializers.ModelSerializer):
+class ProductDetailSerializer(serializers.ModelSerializer):
     badge = BadgeSerializer()
-    category = CategorySerializer()
+    category = CatalogListSerializer()
     characteristics = CharacteristicSerializer(many=True)
 
     class Meta:

@@ -3,9 +3,9 @@ from rest_framework.routers import DefaultRouter
 
 from .views import (
     BadgeViewSet,
-    CategoriesViewSet,
+    CatalogViewSet,
     get_document,
-    FlowerViewSet,
+    ProductViewSet,
 )
 from message.views import (
     SendEmailView
@@ -13,9 +13,9 @@ from message.views import (
 
 v1_router = DefaultRouter()
 
-v1_router.register('categories', CategoriesViewSet)
-v1_router.register('badges', BadgeViewSet)
-v1_router.register('flowers', FlowerViewSet)
+v1_router.register('catalogs', CatalogViewSet, basename='catalogs')
+v1_router.register('badges', BadgeViewSet, basename='badge')
+v1_router.register('products', ProductViewSet, basename='products')
 
 urlpatterns = [
     path('v1/send_mail/', SendEmailView.as_view(), name='send_mail'),

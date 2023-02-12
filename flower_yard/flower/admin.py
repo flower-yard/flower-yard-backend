@@ -1,6 +1,9 @@
 from django.contrib import admin
+
 from django.utils.html import format_html
 from mptt.admin import MPTTModelAdmin
+
+from .forms import CategoryFormAdmin
 from .models import (
     Category,
     Product,
@@ -8,6 +11,7 @@ from .models import (
     Badge, Documents, ProductCharacteristic
 )
 from mptt.admin import TreeRelatedFieldListFilter
+
 
 class ProductCharacteristicInline(admin.StackedInline):
     model = ProductCharacteristic
@@ -17,6 +21,7 @@ class ProductCharacteristicInline(admin.StackedInline):
 
 
 class CategoryAdmin(MPTTModelAdmin):
+    form = CategoryFormAdmin
     list_display = (
         'pk',
         'name',
@@ -38,6 +43,7 @@ class ProductAdmin(admin.ModelAdmin):
         'in_available'
     )
     search_fields = ('name',)
+    prepopulated_fields = {'slug': ('name',)}
     list_filter = (
         'badge',
         ('category', TreeRelatedFieldListFilter)
