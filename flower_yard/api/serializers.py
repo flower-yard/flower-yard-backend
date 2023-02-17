@@ -1,11 +1,8 @@
 from rest_framework import serializers
 
 from api.utils import ValueField
-from flower.models import (
-    Badge, Category,
-    Documents, Characteristic,
-    Product, ProductCharacteristic
-)
+from flower.models import (Badge, Category, Characteristic,
+                           Documents, Product, ProductCharacteristic)
 
 
 class BadgeSerializer(serializers.ModelSerializer):
@@ -27,7 +24,6 @@ class ProductViewSerializer(serializers.ModelSerializer):
             'description',
             'image'
         )
-
 
 
 class CatalogListSerializer(serializers.ModelSerializer):
