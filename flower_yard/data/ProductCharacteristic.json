@@ -1,0 +1,877 @@
+[
+  {
+    "id": 1,
+    "value": "20-25",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 1
+  },
+  {
+    "id": 2,
+    "value": "1.5/10",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 1
+  },
+  {
+    "id": 3,
+    "value": "июнь-октябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 1
+  },
+  {
+    "id": 4,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 1
+  },
+  {
+    "id": 5,
+    "value": "30",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 2
+  },
+  {
+    "id": 6,
+    "value": "3",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 2
+  },
+  {
+    "id": 7,
+    "value": "июнь-октябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 2
+  },
+  {
+    "id": 8,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 2
+  },
+  {
+    "id": 9,
+    "value": "калибрахоа",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 2
+  },
+  {
+    "id": 10,
+    "value": "вербены",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 1
+  },
+  {
+    "id": 11,
+    "value": "30",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 3
+  },
+  {
+    "id": 12,
+    "value": "1.5",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 3
+  },
+  {
+    "id": 13,
+    "value": "июль-сентябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 3
+  },
+  {
+    "id": 14,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 3
+  },
+  {
+    "id": 15,
+    "value": "немезия",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 3
+  },
+  {
+    "id": 16,
+    "value": "35",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 4
+  },
+  {
+    "id": 17,
+    "value": "2/13",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 4
+  },
+  {
+    "id": 18,
+    "value": "круглогодично (май-ноябрь)",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 4
+  },
+  {
+    "id": 19,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 4
+  },
+  {
+    "id": 20,
+    "value": "пеларгония",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 4
+  },
+  {
+    "id": 21,
+    "value": "35",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 5
+  },
+  {
+    "id": 22,
+    "value": "4",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 5
+  },
+  {
+    "id": 23,
+    "value": "июнь-сентябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 5
+  },
+  {
+    "id": 24,
+    "value": "полутень",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 5
+  },
+  {
+    "id": 25,
+    "value": "калибрахоа",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 5
+  },
+  {
+    "id": 26,
+    "value": "80",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 6
+  },
+  {
+    "id": 27,
+    "value": "2.5-5.5",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 6
+  },
+  {
+    "id": 28,
+    "value": "июнь-сентябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 6
+  },
+  {
+    "id": 29,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 6
+  },
+  {
+    "id": 30,
+    "value": "петуния",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 6
+  },
+  {
+    "id": 31,
+    "value": "40",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 7
+  },
+  {
+    "id": 32,
+    "value": "июль-август",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 7
+  },
+  {
+    "id": 33,
+    "value": "тень",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 7
+  },
+  {
+    "id": 34,
+    "value": "гейхера",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 7
+  },
+  {
+    "id": 35,
+    "value": "60",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 8
+  },
+  {
+    "id": 36,
+    "value": "17",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 8
+  },
+  {
+    "id": 37,
+    "value": "июнь-июль",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 8
+  },
+  {
+    "id": 38,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 8
+  },
+  {
+    "id": 39,
+    "value": "лилия",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 8
+  },
+  {
+    "id": 40,
+    "value": "90",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 9
+  },
+  {
+    "id": 41,
+    "value": "18",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 9
+  },
+  {
+    "id": 42,
+    "value": "июнь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 9
+  },
+  {
+    "id": 43,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 9
+  },
+  {
+    "id": 44,
+    "value": "пион",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 9
+  },
+  {
+    "id": 45,
+    "value": "80",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 10
+  },
+  {
+    "id": 46,
+    "value": "7",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 10
+  },
+  {
+    "id": 47,
+    "value": "июнь-август",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 10
+  },
+  {
+    "id": 48,
+    "value": "полутень",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 10
+  },
+  {
+    "id": 49,
+    "value": "нивянник ромашка садовая",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 10
+  },
+  {
+    "id": 50,
+    "value": "80",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 11
+  },
+  {
+    "id": 51,
+    "value": "1.5/10",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 11
+  },
+  {
+    "id": 52,
+    "value": "июль-сентябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 11
+  },
+  {
+    "id": 53,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 11
+  },
+  {
+    "id": 54,
+    "value": "флокс метельчатый",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 11
+  },
+  {
+    "id": 55,
+    "value": "100",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 12
+  },
+  {
+    "id": 56,
+    "value": "10",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 12
+  },
+  {
+    "id": 57,
+    "value": "июнь-август",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 12
+  },
+  {
+    "id": 58,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 12
+  },
+  {
+    "id": 59,
+    "value": "эхинацея махровая",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 12
+  },
+  {
+    "id": 60,
+    "value": "20",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 13
+  },
+  {
+    "id": 61,
+    "value": "1.5/10",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 13
+  },
+  {
+    "id": 62,
+    "value": "март-май",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 13
+  },
+  {
+    "id": 63,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 13
+  },
+  {
+    "id": 64,
+    "value": "примула карликовая",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 13
+  },
+  {
+    "id": 65,
+    "value": "50-100",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 14
+  },
+  {
+    "id": 66,
+    "value": "1/6",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 14
+  },
+  {
+    "id": 67,
+    "value": "июнь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 14
+  },
+  {
+    "id": 68,
+    "value": "сентябрь",
+    "measurement": null,
+    "characteristic_id": 7,
+    "product_id": 14
+  },
+  {
+    "id": 69,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 14
+  },
+  {
+    "id": 70,
+    "value": "барбарис",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 14
+  },
+  {
+    "id": 71,
+    "value": "150",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 15
+  },
+  {
+    "id": 72,
+    "value": "2/20",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 15
+  },
+  {
+    "id": 73,
+    "value": "июнь-сентябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 15
+  },
+  {
+    "id": 74,
+    "value": "полутень",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 15
+  },
+  {
+    "id": 75,
+    "value": "гортензия",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 15
+  },
+  {
+    "id": 76,
+    "value": "20-50",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 16
+  },
+  {
+    "id": 77,
+    "value": "2-3",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 16
+  },
+  {
+    "id": 78,
+    "value": "май-сентябрь",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 16
+  },
+  {
+    "id": 79,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 16
+  },
+  {
+    "id": 80,
+    "value": "роза мини",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 16
+  },
+  {
+    "id": 81,
+    "value": "250-300",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 17
+  },
+  {
+    "id": 82,
+    "value": "0.5/15",
+    "measurement": "cm",
+    "characteristic_id": 2,
+    "product_id": 17
+  },
+  {
+    "id": 83,
+    "value": "май",
+    "measurement": null,
+    "characteristic_id": 4,
+    "product_id": 17
+  },
+  {
+    "id": 84,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 17
+  },
+  {
+    "id": 85,
+    "value": "сирень обыкновенная",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 17
+  },
+  {
+    "id": 86,
+    "value": "300-400",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 18
+  },
+  {
+    "id": 87,
+    "value": "5",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 18
+  },
+  {
+    "id": 88,
+    "value": "июль-август",
+    "measurement": null,
+    "characteristic_id": 7,
+    "product_id": 18
+  },
+  {
+    "id": 89,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 18
+  },
+  {
+    "id": 90,
+    "value": "Абрикос",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 18
+  },
+  {
+    "id": 91,
+    "value": "250-300",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 19
+  },
+  {
+    "id": 92,
+    "value": "10",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 19
+  },
+  {
+    "id": 93,
+    "value": "август",
+    "measurement": null,
+    "characteristic_id": 7,
+    "product_id": 19
+  },
+  {
+    "id": 94,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 19
+  },
+  {
+    "id": 95,
+    "value": "груша",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 19
+  },
+  {
+    "id": 96,
+    "value": "100",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 20
+  },
+  {
+    "id": 97,
+    "value": "1.5-2",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 20
+  },
+  {
+    "id": 98,
+    "value": "август",
+    "measurement": null,
+    "characteristic_id": 7,
+    "product_id": 20
+  },
+  {
+    "id": 99,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 20
+  },
+  {
+    "id": 100,
+    "value": "крыжовник",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 20
+  },
+  {
+    "id": 101,
+    "value": "100",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 21
+  },
+  {
+    "id": 102,
+    "value": "0.7/7",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 21
+  },
+  {
+    "id": 103,
+    "value": "июль",
+    "measurement": null,
+    "characteristic_id": 7,
+    "product_id": 21
+  },
+  {
+    "id": 104,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 21
+  },
+  {
+    "id": 105,
+    "value": "Смородина красная",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 21
+  },
+  {
+    "id": 106,
+    "value": "300",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 22
+  },
+  {
+    "id": 107,
+    "value": "4",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 22
+  },
+  {
+    "id": 108,
+    "value": "август-сентябрь",
+    "measurement": null,
+    "characteristic_id": 7,
+    "product_id": 22
+  },
+  {
+    "id": 109,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 22
+  },
+  {
+    "id": 110,
+    "value": "сливово-вишнёвый гибрид",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 22
+  },
+  {
+    "id": 111,
+    "value": "300",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 23
+  },
+  {
+    "id": 112,
+    "value": "8",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 23
+  },
+  {
+    "id": 113,
+    "value": "сентябрь",
+    "measurement": null,
+    "characteristic_id": 7,
+    "product_id": 23
+  },
+  {
+    "id": 114,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 23
+  },
+  {
+    "id": 115,
+    "value": "яблоня",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 23
+  },
+  {
+    "id": 116,
+    "value": "50-100",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 24
+  },
+  {
+    "id": 117,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 24
+  },
+  {
+    "id": 118,
+    "value": "ель канадская",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 24
+  },
+  {
+    "id": 119,
+    "value": "30",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 25
+  },
+  {
+    "id": 120,
+    "value": "1",
+    "measurement": "cm",
+    "characteristic_id": 3,
+    "product_id": 25
+  },
+  {
+    "id": 121,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 25
+  },
+  {
+    "id": 122,
+    "value": "можжевельник",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 25
+  },
+  {
+    "id": 123,
+    "value": "130",
+    "measurement": "cm",
+    "characteristic_id": 1,
+    "product_id": 26
+  },
+  {
+    "id": 124,
+    "value": "свет",
+    "measurement": null,
+    "characteristic_id": 5,
+    "product_id": 26
+  },
+  {
+    "id": 125,
+    "value": "туя шаровидная",
+    "measurement": null,
+    "characteristic_id": 6,
+    "product_id": 26
+  }
+]

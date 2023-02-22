@@ -64,6 +64,7 @@ class BadgeAdmin(admin.ModelAdmin):
         'name',
         'slug'
     )
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class CharacteristicAdmin(admin.ModelAdmin):

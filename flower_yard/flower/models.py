@@ -42,9 +42,9 @@ class Category(MPTTModel, CategoryBadgeBase):
     )
 
     class Meta:
+        db_table = 'Category'
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
-        db_table = 'Category'
 
     class MPTTMeta:
         order_insertion_by = ['name']
@@ -108,9 +108,9 @@ class Product(models.Model):
     )
 
     class Meta:
+        db_table = 'Product'
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
-        db_table = 'Product'
 
     def __str__(self):
         return self.name
@@ -123,6 +123,7 @@ class Characteristic(models.Model):
     )
 
     class Meta:
+        db_table = 'Characteristic'
         verbose_name = 'Наименование характеристики'
         verbose_name_plural = 'Наименование характеристик'
 
@@ -145,7 +146,7 @@ class ProductCharacteristic(models.Model):
     )
     value = models.CharField(
         max_length=300,
-        verbose_name='Значение характеристики',
+        verbose_name='Значение характеристики'
     )
     measurement = models.CharField(
         max_length=2,
@@ -190,6 +191,7 @@ class Documents(models.Model):
     )
 
     class Meta:
+        db_table = 'Documents'
         get_latest_by = ['date_create', 'date_update']
         verbose_name = 'Документ'
         verbose_name_plural = 'Документы'

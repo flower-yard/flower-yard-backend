@@ -8,6 +8,7 @@ class ProductFilter(FilterSet):
     Фильтрация по товарам.
     """
     name = filters.CharFilter(lookup_expr='istartswith')
+    badge = filters.CharFilter(field_name='badge__slug')
     products_is_badge = filters.BooleanFilter(method='get_products_is_badge')
 
     class Meta:

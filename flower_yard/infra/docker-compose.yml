@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+
+  backend:
+    container_name: flower-yard-backend
+    image: maxon57/flower-yard-backend:v1.0
+    restart: always
+    ports:
+      - "8000:8000"

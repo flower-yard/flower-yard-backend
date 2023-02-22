@@ -32,11 +32,11 @@ def open_file_json(file: str) -> List[dict]:
 
 def main():
     data_files = [
-        'categories',
-        'badges',
-        'products',
-        'characteristics',
-        'product_characteristic'
+        'Сategories',
+        'Badges',
+        'Products',
+        'Сharacteristics',
+        'ProductCharacteristic'
     ]
     data_models = [
         Category,

@@ -1,8 +1,11 @@
 from rest_framework import serializers
 
 from api.utils import ValueField
-from flower.models import (Badge, Category, Characteristic,
-                           Documents, Product, ProductCharacteristic)
+from flower.models import (
+    Badge, Category,
+    Documents, Characteristic,
+    Product, ProductCharacteristic
+)
 
 
 class BadgeSerializer(serializers.ModelSerializer):
@@ -16,13 +19,17 @@ class BadgeSerializer(serializers.ModelSerializer):
 
 class ProductViewSerializer(serializers.ModelSerializer):
     """Выдает общую информацию о продукте"""
+    badge = BadgeSerializer()
+
     class Meta:
         model = Product
         fields = (
             'id',
             'name',
+            'slug',
             'description',
-            'image'
+            'image',
+            'badge'
         )
 
 
@@ -42,35 +49,6 @@ class CatalogListSerializer(serializers.ModelSerializer):
     def get_parent(self, obj):
         return CatalogListSerializer(
             obj.parent).data if obj.parent else None
-
-
-class CatalogDetailSerializer(serializers.ModelSerializer):
-    """Выдает информацию конкретной категории."""
-    products = serializers.SerializerMethodField(source='category')
-
-    class Meta:
-        model = Category
-        fields = (
-            'pk',
-            'name',
-            'slug',
-            'products'
-        )
-
-    def get_products(self, category):
-        request = self.context.get('request')
-        sorted_badge = request.query_params.get('sorted_badge')
-        if sorted_badge:
-            return ProductViewSerializer(
-                Product.objects.filter(category=category, badge__slug=sorted_badge),
-                context={'queryset': request},
-                many=True
-            ).data
-        return ProductViewSerializer(
-            Product.objects.filter(category=category),
-            context={'queryset': request},
-            many=True
-        ).data
 
 
 class CharacteristicSerializer(serializers.ModelSerializer):

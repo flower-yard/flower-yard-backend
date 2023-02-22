@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Новинка",
+    "slug": "novinka"
+  },
+  {
+    "id": 2,
+    "name": "Рекомендуем",
+    "slug": "rekomenduem"
+  },
+  {
+    "id": 3,
+    "name": "Популярное",
+    "slug": "populyarnoe"
+  }
+]
