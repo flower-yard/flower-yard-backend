@@ -31,9 +31,13 @@ class SendEmailSerializer(serializers.Serializer):
                 raise serializers.ValidationError(
                     'Продукт не может повторяться'
                 )
-            if (product.amount - data['amount']) < 0:
+            if not product.amount:
                 raise serializers.ValidationError(
-                    f'{product.name} на складе осталось только - {product.amount}'
+                    f'{product.name} - закончился!'
+                )
+            if (product.amount - data['count']) < 0:
+                raise serializers.ValidationError(
+                    f'{product.name} на складе осталось - {product.amount}'
                 )
             unique_products.append(product)
         return value

@@ -9,5 +9,5 @@ def _calculate_number_products(products) -> None:
     with atomic():
         for product in products:
             obj = Product.objects.get(pk=product['id'])
-            obj.amount = F('amount') - product['amount']
+            obj.amount = F('amount') - product['count']
             obj.save()

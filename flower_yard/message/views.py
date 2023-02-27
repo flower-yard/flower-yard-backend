@@ -12,5 +12,5 @@ class SendEmailView(CreateAPIView):
         serializer = SendEmailSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         _calculate_number_products(serializer.data.get('products'))
-        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+        return Response(status=status.HTTP_201_CREATED)
 

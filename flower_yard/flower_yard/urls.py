@@ -6,6 +6,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.urls import include, path
 
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Product API",
@@ -22,9 +23,21 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('api_doc/',
          schema_view.with_ui('swagger', cache_timeout=0),
-         name='api_doc'),
+         name='api_doc'
+    ),
+    path('', include('flower.urls'))
 ]
 
+admin.site.site_title = 'Цветочный дворик'
+admin.site.site_header = 'Цветочный дворик'
+
 if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    import debug_toolbar
+    import mimetypes
+
+    mimetypes.add_type("application/javascript", ".js", True)
+    urlpatterns = [
+                      path('__debug__/', include(debug_toolbar.urls)),
+                  ] + urlpatterns
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

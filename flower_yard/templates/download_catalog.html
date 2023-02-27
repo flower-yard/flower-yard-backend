@@ -1,0 +1,14 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hi</title>
+</head>
+<body>
+{% load encode_image %}
+    {% for product in products %}
+        <h3>{{ product.name }}</h3>
+        <img style="height: 35px;" alt="Contractor Logo" src="data:image/png;base64, {{ product.image | get_image_file_as_base64_data }}">
+        <div>{{ product.description }}</div>
+    {% endfor %}
+</body>
+</html>

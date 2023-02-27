@@ -50,6 +50,11 @@ class ProductAdmin(admin.ModelAdmin):
     )
     inlines = [ProductCharacteristicInline]
 
+    def changelist_view(self, request, extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['exists_products'] = Product.objects.exists()
+        return super(ProductAdmin, self).changelist_view(request, extra_context=extra_context)
+
     def image_tag(self, obj):
         return format_html(
             '<img src="{}" style="width: 35px; height:35px;"/>'.format(

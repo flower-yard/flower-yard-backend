@@ -58,3 +58,5 @@ def get_document(request):
     serializer = DocumentsSerializer(Documents.objects.latest(),
                                      context={"request": request})
     return Response(serializer.data)
+
+
